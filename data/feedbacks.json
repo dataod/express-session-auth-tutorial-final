@@ -1,0 +1,30 @@
+{
+  "JSaddict": {
+    "project_name": "react-nodejs",
+    "username": "JSaddict",
+    "rating": 5,
+    "postedAt": "April 4th 2021",
+    "text": "Great stuff... almost as good as vanilla."
+  },
+  "AngularFiend": {
+    "project_name": "react-nodejs",
+    "username": "AngularFiend",
+    "rating": 4,
+    "postedAt": "May 5th 2021",
+    "text": "Lost me here on 1st part, so took 1 star off."
+  },
+  "Vuehoo": {
+    "project_name": "react-nodejs",
+    "username": "Vuehoo",
+    "rating": 4,
+    "postedAt": "June 6th 2021",
+    "text": ""
+  },
+  "Reactful": {
+    "project_name": "react-nodejs",
+    "username": "Reactful",
+    "rating": 5,
+    "postedAt": "July 4th 2021",
+    "text": "Thanks for sharing this code."
+  }
+}
