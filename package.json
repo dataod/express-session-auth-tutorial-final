@@ -1,6 +1,9 @@
 {
-  "name": "express-sessions-auth",
+  "name": "express-session-auth-tutorial-final",
   "version": "1.0.0",
+  "author": {
+    "name": "Dataod <contact@dataod.com>"
+  },
   "description": "Server side for React authentication",
   "main": "server.js",
   "scripts": {
@@ -8,7 +11,6 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
@@ -36,6 +38,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dataod/express-sessions-auth.git"
+    "url": "https://github.com/dataod/express-session-auth-tutorial-final.git"
   }
 }
