@@ -1,6 +1,6 @@
 # This is a final version of the Express server side for React Auth tutorial
 
-This project is ment to run in tandem with [React client side auth tutorial](https://github.com/dataod/react-auth-tutorial-final).
+This project is meant to run in tandem with [React client side auth tutorial](https://github.com/dataod/react-auth-tutorial-final).
 
 ## Prerequisites
 
