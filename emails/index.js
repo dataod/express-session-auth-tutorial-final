@@ -23,7 +23,7 @@ const mg = mailgun.client({
 const sendVerification = (email, token) => {
   mg.messages
     .create(MAIL_BASE_DOMAIN, {
-      from: "Dataod <no-reply@dataod.com>",
+      from: "dataod <no-reply@dataod.com>",
       to: email,
       subject: "Email Verification",
       template: "email_verification",
@@ -39,7 +39,7 @@ const sendVerification = (email, token) => {
 const sendPasswordReset = (email, token) => {
   mg.messages
     .create(MAIL_BASE_DOMAIN, {
-      from: "Dataod <no-reply@dataod.com>",
+      from: "dataod <no-reply@dataod.com>",
       to: email,
       subject: "Password reset",
       template: "tutorial_password_reset",
@@ -55,7 +55,7 @@ const sendPasswordReset = (email, token) => {
 const sendPWChangeConfirmation = (email) => {
   mg.messages
     .create(MAIL_BASE_DOMAIN, {
-      from: "Dataod <no-reply@dataod.com>",
+      from: "dataod <no-reply@dataod.com>",
       to: email,
       subject: "Your Password has been changed",
       template: "tutorial_password_change_confirmation",

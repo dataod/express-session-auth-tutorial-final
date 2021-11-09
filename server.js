@@ -10,7 +10,6 @@ const logger = require("./logger");
 const authRouter = require("./routers/auth-router");
 const userRouter = require("./routers/user-router");
 const emailRouter = require("./routers/email-router");
-const feedbackRouter = require("./routers/feedback-router");
 const logRouter = require("./routers/log-router");
 
 require("dotenv").config();
@@ -67,7 +66,6 @@ require("dotenv").config();
     app.use(authRouter);
     app.use(userRouter);
     app.use(emailRouter);
-    app.use(feedbackRouter);
 
     const PORT = process.env.PORT;
     app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));

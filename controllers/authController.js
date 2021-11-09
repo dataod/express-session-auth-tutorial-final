@@ -48,17 +48,6 @@ module.exports = {
       newUser.email = req.body.email;
       newUser.password = req.body.password;
       newUser.emailVerified = false;
-      newUser.shippingInfo.first_name = "";
-      newUser.shippingInfo.middle_name = "";
-      newUser.shippingInfo.last_name = "";
-      newUser.shippingInfo.country = "";
-      newUser.shippingInfo.region = "";
-      newUser.shippingInfo.city = "";
-      newUser.shippingInfo.address_line_1 = "";
-      newUser.shippingInfo.address_line_2 = "";
-      newUser.shippingInfo.postal_code = "";
-
-      newUser.feedbackAvailable = true;
 
       const sessionUser = helpers.sessionizeUser(newUser);
       req.session.user = sessionUser;

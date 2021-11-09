@@ -5,8 +5,6 @@ const sessionizeUser = (user) => {
     username: user.username,
     email: user.email,
     emailVerified: user.emailVerified,
-    shippingInfo: user.shippingInfo,
-    feedbackAvailable: user.feedbackAvailable,
   };
 };
 

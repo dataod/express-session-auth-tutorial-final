@@ -22,18 +22,6 @@ const userSchema = new mongoose.Schema(
     googleId: String,
     tokens: Array,
 
-    shippingInfo: {
-      first_name: String,
-      middle_name: String,
-      last_name: String,
-      country: String,
-      region: String,
-      city: String,
-      address_line_1: String,
-      address_line_2: String,
-      postal_code: String,
-    },
-    feedbackAvailable: Boolean,
   },
   { timestamps: true }
 );

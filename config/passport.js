@@ -16,7 +16,7 @@ module.exports = function (passport) {
           logger.error(
             { err: err },
             { clientIp: req.ip },
-            "Error in Local strategy find user"
+            "Error in Local strategy finding user."
           );
           return done(err);
         }
@@ -35,7 +35,7 @@ module.exports = function (passport) {
             logger.error(
               { err: err },
               { clientIp: req.ip },
-              "Error in Local strategy password compare."
+              "Error in Local strategy password comparison."
             );
             return done(err);
           }
@@ -90,8 +90,14 @@ module.exports = function (passport) {
                     .format(),
                   refreshToken,
                 });
+                //https://stackoverflow.com/questions/18371339/how-to-retrieve-name-from-email-address/18371753
+                // Making username out of 1st part of the email
+                const username = profile._json.email.substring(
+                  0,
+                  profile._json.email.lastIndexOf("@")
+                );
                 // More data available from profile
-                user.username = profile.displayName;
+                user.username = username;
                 user.emailVerified = true;
                 user.emailVerificationToken = "";
 
@@ -157,17 +163,13 @@ module.exports = function (passport) {
                     refreshToken,
                   });
                   user.emailVerified = true;
-                  user.username = profile.displayName;
-                  user.shippingInfo.first_name = "";
-                  user.shippingInfo.last_name = "";
-                  user.shippingInfo.middle_name = "";
-                  user.shippingInfo.country = "";
-                  user.shippingInfo.region = "";
-                  user.shippingInfo.city = "";
-                  user.shippingInfo.address_line_1 = "";
-                  user.shippingInfo.address_line_2 = "";
-                  user.shippingInfo.postal_code = "";
-                  user.feedbackAvailable = true;
+                  //https://stackoverflow.com/questions/18371339/how-to-retrieve-name-from-email-address/18371753
+                  // Making username out of 1st part of the email
+                  const username = profile._json.email.substring(
+                    0,
+                    profile._json.email.lastIndexOf("@")
+                  );
+                  user.username = username;
 
                   const sessionUser = helpers.sessionizeUser(user);
                   req.session.user = sessionUser;

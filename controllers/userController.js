@@ -2,7 +2,6 @@ const logger = require("../logger");
 const User = require("../db/user");
 const passwordSchema = require("../validations/passwordSchema");
 const tokenSchema = require("../validations/tokenSchema");
-const shippingSchema = require("../validations/shippingSchema");
 const helpers = require("../utils/helpers");
 const { stringify } = require("querystring");
 
@@ -49,58 +48,6 @@ module.exports = {
     }
   },
 
-  /**
-   *  POST /account/information
-   *  Update personal Shipping information
-   */
-  async postShippingInfo(req, res, next) {
-    try {
-      // Validation
-      await shippingSchema.validateAsync({
-        first_name: req.body.first_name,
-        middle_name: req.body.middle_name,
-        last_name: req.body.last_name,
-        country: req.body.country,
-        region: req.body.region,
-        city: req.body.city,
-        address_line_1: req.body.address_line_1,
-        address_line_2: req.body.address_line_2,
-        postal_code: req.body.postal_code,
-      });
-      //
-      await User.findById(req.user.id, (err, user) => {
-        if (err) {
-          return next(err);
-        }
-        user.shippingInfo.first_name = req.body.first_name || "";
-        user.shippingInfo.middle_name = req.body.middle_name || "";
-        user.shippingInfo.last_name = req.body.last_name || "";
-        user.shippingInfo.country = req.body.country || "";
-        user.shippingInfo.region = req.body.region || "";
-        user.shippingInfo.city = req.body.city || "";
-        user.shippingInfo.address_line_1 = req.body.address_line_1 || "";
-        user.shippingInfo.address_line_2 = req.body.address_line_2 || "";
-        user.shippingInfo.postal_code = req.body.postal_code || "";
-
-        user.save((err) => {
-          if (err) {
-            return next(err);
-          }
-
-          const sessionUser = helpers.sessionizeUser(user);
-          req.session.user = sessionUser;
-          res.status(200).send({ msg: "Information successfully updated." });
-        });
-      });
-    } catch (err) {
-      logger.error(
-        { err: err },
-        { clientIp: req.ip },
-        "Error in postShippingInfo"
-      );
-      res.status(400).send({ msg: "Something went wrong." });
-    }
-  },
 
   /**
    *  POST /password-reset/request
